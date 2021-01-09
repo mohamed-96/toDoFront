@@ -1,0 +1,76 @@
+<div class="modal-header">
+    <h4 class="modal-title">Add task </h4>
+    <button type="button" class="close" aria-label="Close" (click)="bsModalRef.hide()">
+  <span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="addForm" (ngSubmit)="submit()">
+        <div class="form-group">
+            <label for="t">Title</label>
+            <input type="text" class="form-control" id="t" aria-describedby="th" formControlName="title" placeholder="title">
+            <div *ngFor="let error of errorMessages.title">
+                <ng-container *ngIf="title.hasError(error.type) && (title.dirty || title.touched)">
+                    <small id="th" class="form-text text-muted help">{{error.message}}</small>
+                </ng-container>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="d">Desc</label>
+            <input type="text" class="form-control" id="d" aria-describedby="dh" formControlName="desc" placeholder="Description">
+            <div *ngFor="let error of errorMessages.desc">
+                <ng-container *ngIf="desc.hasError(error.type) && (desc.dirty || desc.touched)">
+                    <small id="dh" class="form-text text-muted help">{{error.message}}</small>
+                </ng-container>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="dt">Date</label>
+            <input type="text" class="form-control" id="dt" aria-describedby="dth" formControlName="date" placeholder="Date">
+            <div *ngFor="let error of errorMessages.date">
+                <ng-container *ngIf="date.hasError(error.type) && (date.dirty || date.touched)">
+                    <small id="dth" class="form-text text-muted help">{{error.message}}</small>
+                </ng-container>
+            </div>
+        </div>
+
+
+        <button [disabled]="!addForm.valid" (click)="submit()" class="btn btn-success">Add</button>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="bsModalRef.hide()">Close</button>
+</div>
+<!--
+   <form [formGroup]="addForm" (ngSubmit)="submit()">
+                    <div class="form-group">
+                        <label for="t">Title</label>
+                        <input type="text" class="form-control" id="t" aria-describedby="th" formControlName="title" placeholder="title">
+                        <div *ngFor="let error of errorMessages.title">
+                            <ng-container *ngIf="title.hasError(error.type) && (title.dirty || title.touched)">
+                                <small id="th" class="form-text text-muted help">{{error.message}}</small>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="d">Desc</label>
+                        <input type="text" class="form-control" id="d" aria-describedby="dh" formControlName="desc" placeholder="Description">
+                        <div *ngFor="let error of errorMessages.desc">
+                            <ng-container *ngIf="desc.hasError(error.type) && (desc.dirty || desc.touched)">
+                                <small id="dh" class="form-text text-muted help">{{error.message}}</small>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="dt">Date</label>
+                        <input type="text" class="form-control" id="dt" aria-describedby="dth" formControlName="date" placeholder="Date">
+                        <div *ngFor="let error of errorMessages.date">
+                            <ng-container *ngIf="date.hasError(error.type) && (date.dirty || date.touched)">
+                                <small id="dth" class="form-text text-muted help">{{error.message}}</small>
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <button [disabled]="!addForm.valid" (click)="submit()" class="btn btn-success">Add</button>
+                </form>
+-->

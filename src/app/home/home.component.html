@@ -1,0 +1,26 @@
+<h1 class="mt-5 mb-5"> My tasks </h1>
+<div class="row justify-content-md-center">
+    <div class="col-6">
+        <div class="card bg-light">
+            <div class="card-header">
+                <button type="button" (click)="openModalWithComponent($event)" class="btn btn-primary btn-md "> Add tastk</button>
+                <ul class="nav nav-pills todo-nav mt-2">
+                    <li role="presentation" class="nav-item all-task active"><a class="nav-link">All</a></li>
+                    <li role="presentation" class="nav-item active-task"><a class="nav-link">Active</a></li>
+                    <li role="presentation" class="nav-item completed-task"><a class="nav-link">Completed</a></li>
+                </ul>
+
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div class="custom-control custom-checkbox">
+                            <input class="custom-control-input" id="customCheck2" type="checkbox">
+                            <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheck2">Pepperoni</label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

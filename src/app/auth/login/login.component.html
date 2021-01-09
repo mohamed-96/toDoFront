@@ -1,0 +1,26 @@
+<h1 class="mt-5 mb-4">Login</h1>
+
+<div class="row" class="row justify-content-md-center">
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                <form [formGroup]="loginForm" (ngSubmit)="submit()">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="email" placeholder="Enter email">
+                        <div *ngFor="let error of errorMessages.email">
+                            <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+                                <small id="emailHelp" class="form-text text-muted help">{{error.message}}</small>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="mb-1">
+                        <a href="/signup">create an account ?</a> <br>
+                    </div>
+                    <button [disabled]="!loginForm.valid" (click)="submit()" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
